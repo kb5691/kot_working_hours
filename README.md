@@ -1,10 +1,14 @@
 # kot_working_hours
-勤務時間の取得
+1か月分の勤務時間を取得する
 
 ## 事前準備
 * GoogleChromをインストール
 * 下記を参考にPython3系をインストール
-    <http://netsu-n.mep.titech.ac.jp/~Kawaguchi/python/install-win/>
+    * windowsの場合（どちらかを参考にしてください）
+        * <https://www.python.jp/install/windows/install.html>
+        * <http://netsu-n.mep.titech.ac.jp/~Kawaguchi/python/install-win/>
+    * macの場合
+        * <http://netsu-n.mep.titech.ac.jp/~Kawaguchi/python/install-mac/>
 * コマンドラインで以下をインストール
     ``` pip install selenium ```
     ``` pip install chromedriver-binary ```
