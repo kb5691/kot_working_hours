@@ -10,13 +10,13 @@
     * macの場合
         * <http://netsu-n.mep.titech.ac.jp/~Kawaguchi/python/install-mac/>
 * コマンドラインで以下をインストール
-    ``` pip install selenium ```
-    ``` pip install chromedriver-binary ```
-    ``` pip install webdriver_manager ```
-    ``` pip install requests ```
+    * ``` pip install selenium ```
+    * ``` pip install chromedriver-binary ```
+    * ``` pip install webdriver_manager ```
+    * ``` pip install requests ```
 
 ## 実行手順
 1. working_hours.pyにキングオブタイムのID、パスワードを入力する
 2. コマンドラインで以下を実行する
-    ``` python working_hours.py ```
+    * ``` python working_hours.py ```
 3. 自動的にGoogleChromeが起動し、スプレッドシートへの書き込みが行われる
