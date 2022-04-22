@@ -146,7 +146,7 @@ webdriver.close()
 webdriver.quit()
 
 # スプレッドシートへの書き込み
-url = "https://script.google.com/macros/s/AKfycbws4lew7ZC0V7DXLjybfSZxtmcup9Deyhaf8z48umS95xfUFWwbyPw2Po6X4KeYTYup/exec"
+url = "https://script.google.com/macros/s/AKfycbxvMHZQcTPhIokrCFLWlMsnCtISCShJYlCqTuE56LkXAgONuvfz0VW2lKQqpxmea_bB/exec"
 
 for working_hour in working_hours_list.values():
     try:
