@@ -113,31 +113,14 @@ for i in range(range_start,range_end):
 
         # 日付、スケジュール
         working_hours_list[i] = {"day" : day, "day_schedule" : day_schedule}
-
         # 出勤時間
-        if not td6:
-            working_hours_list[i]["start_work"] = td6
-        else:
-            td6 = re.search("\d+:\d+", td6)
-            working_hours_list[i]["start_work"] = td6.group()
+        working_hours_list[i]["start_work"] = re.sub("\D\D", "", td6)
         # 退勤時間
-        if not td7:
-            working_hours_list[i]["end_work"] = td7
-        else:
-            td7 = re.search("\d+:\d+", td7)
-            working_hours_list[i]["end_work"] = td7.group()
+        working_hours_list[i]["end_work"] = re.sub("\D\D", "", td7)
         # 休憩開始時間
-        if not td8:
-            working_hours_list[i]["start_break"] = td8
-        else:
-            td8 = re.search("\d+:\d+", td8)
-            working_hours_list[i]["start_break"] = td8.group()
+        working_hours_list[i]["start_break"] = re.sub("\D\D", "", td8)
         # 休憩終了時間
-        if not td9:
-            working_hours_list[i]["end_break"] = td9
-        else:
-            td9 = re.search("\d+:\d+", td9)
-            working_hours_list[i]["end_break"] = td9.group()
+        working_hours_list[i]["end_break"] = re.sub("\D\D", "", td9)
     except :
         print("勤務時間の取得でエラーが発生しました。")
         break
