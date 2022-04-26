@@ -63,6 +63,14 @@ range_end = lastday[1]
 
 # ********************コード********************
 
+# KOTから値を取得
+def getText(path):
+    return webdriver.find_element_by_xpath(path).text
+
+# 勤務時間を 00:00 の形式にする
+def getTime(time):
+    return re.sub("\D\D", "", time)
+
 webdriver = webdriver.Chrome(ChromeDriverManager().install())
 #webdriver = webdriver.Chrome()
 webdriver.get("https://s2.kingtime.jp/admin/yC6jmVwSsiEOPtg6kcE7uf3XZpZIi32KF")
@@ -99,28 +107,28 @@ for i in range(range_start,range_end):
     
     try :
         # 日付
-        day = webdriver.find_element_by_xpath(day_xpath).text
+        day = getText(day_xpath)
         # スケジュール
-        day_schedule = webdriver.find_element_by_xpath(day_schedule_xpath).text
+        day_schedule = getText(day_schedule_xpath)
         # 出勤時間
-        td6 = webdriver.find_element_by_xpath(td6_xpath).text
+        td6 = getText(td6_xpath)
         # 退勤時間
-        td7 = webdriver.find_element_by_xpath(td7_xpath).text
+        td7 = getText(td7_xpath)
         # 休憩開始時間
-        td8 = webdriver.find_element_by_xpath(td8_xpath).text
+        td8 = getText(td8_xpath)
         # 休憩終了時間
-        td9 = webdriver.find_element_by_xpath(td9_xpath).text
+        td9 = getText(td9_xpath)
 
         # 日付、スケジュール
         working_hours_list[i] = {"day" : day, "day_schedule" : day_schedule}
         # 出勤時間
-        working_hours_list[i]["start_work"] = re.sub("\D\D", "", td6)
+        working_hours_list[i]["start_work"] = getTime(td6)
         # 退勤時間
-        working_hours_list[i]["end_work"] = re.sub("\D\D", "", td7)
+        working_hours_list[i]["end_work"] = getTime(td7)
         # 休憩開始時間
-        working_hours_list[i]["start_break"] = re.sub("\D\D", "", td8)
+        working_hours_list[i]["start_break"] = getTime(td8)
         # 休憩終了時間
-        working_hours_list[i]["end_break"] = re.sub("\D\D", "", td9)
+        working_hours_list[i]["end_break"] = getTime(td9)
     except :
         print("勤務時間の取得でエラーが発生しました。")
         break
@@ -138,4 +146,5 @@ for working_hour in working_hours_list.values():
         print("スプレッドシートへの書き込みでエラーが発生しました。")
         break
 
-print(response)
+if response.status_code == requests.codes.ok:
+    print("スプレッドシートへの書き込みが完了しました。")
