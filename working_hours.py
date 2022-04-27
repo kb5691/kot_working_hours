@@ -32,13 +32,37 @@ url = ""
 
 # ********************コード********************
 
-# KING OF TIMEの勤務時間入力欄から値を取得する
 def getInputValue(path):
+    """
+    KING OF TIMEの勤務時間入力欄から値を取得する
+
+    Parameters
+    ----------
+    path : str
+        勤務時間入力欄のHTMLでのパス
+
+    Returns
+    -------
+    inputValue : str
+        勤務時間入力欄の値
+    """
     return webdriver.find_element_by_xpath(path).text
 
-# 取得した勤務時間の値を 編 00:00 から 00:00 の形式にする
-def changeInputValue(inputValue):
-    return re.sub("^\D*", "", inputValue)
+def changeInputValue(input_value):
+    """
+    勤務時間入力欄の値を 00:00 の形式にする
+
+    Parameters
+    ----------
+    input_value : str
+        勤務時間入力欄の値
+
+    Returns
+    -------
+    work_time : str
+        00:00 形式の勤務時間
+    """
+    return re.sub("^\D*", "", input_value)
 
 webdriver = webdriver.Chrome(ChromeDriverManager().install())
 webdriver.get("https://s2.kingtime.jp/admin/yC6jmVwSsiEOPtg6kcE7uf3XZpZIi32KF")
