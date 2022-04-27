@@ -23,7 +23,7 @@
         }
     ```
     * コード内の「スプレッドシートID」を2.で作成したスプレッドシートのIDに変更する
-        * https&#58;//docs.google.com/spreadsheets/d/**[ここにIDが存在]**/edit
+        * https://docs.google.com/spreadsheets/d/**[ここにIDが存在]**/edit
     * 変更が完了したら保存する
     ![](/images/sheet_2.png)
     * デプロイから新しいデプロイを選択する
