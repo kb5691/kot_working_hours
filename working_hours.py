@@ -115,10 +115,7 @@ webdriver.quit()
 for working_hour in working_hours_list.values():
     try:
         response = requests.post(url, data=working_hour)
+        print(working_hour["day"] + "の入力が完了しました。")
     except:
-        response = "スプレッドシートへの書き込みでエラーが発生しました。"
-        print(response)
+        print("スプレッドシートへの書き込みでエラーが発生しました。")
         break
-
-if response.status_code == requests.codes.ok:
-    print("スプレッドシートへの書き込みが完了しました。")
